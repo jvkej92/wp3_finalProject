@@ -8,16 +8,16 @@
             @csrf
             <div class="form-card" id="form-card-1">
                 <h2 class="form-card-heading">Personal Information</h2>
-                <div class="input-row col-1">
+                <div class="input-row col-md-8">
                     <span class="input-label hidden">Name</span>
-                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Your Name">
                         @if ($errors->has('name'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('name') }}</strong>
                             </span>
                         @endif
                 </div>
-                <div class="input-row col-1">
+                <div class="input-row col-md-8">
                         <span class="input-label hidden">Birth Date</span>
                         <input id="birthday" type="date" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="birthday" value="{{ old('birthday') }}" required>
                                 @if ($errors->has('birthday'))
@@ -25,8 +25,16 @@
                                         <strong>{{ $errors->first('birthday') }}</strong>
                                     </span>
                                 @endif
-                    </div>
-                <input>
+                </div>
+                <div class="input-row col-md-8">
+                        <span class="input-label hidden">Your Email</span>
+                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Your Email">
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                </div>
             </div>
             <div class="form-card" id="form-card-2">
                 <h2 class="form-card-heading">Contact Information</h2>
