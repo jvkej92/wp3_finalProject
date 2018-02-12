@@ -44,19 +44,9 @@
 
 .hidden{
     opacity: 0;
+    transform: translateX(-15px);
 }
 
-.fade-in-and-up{
-    animation: fade-in-and-up .3s once;
-}
-
-@keyframes fade-in-and-up {
-    from{
-        transform: translateX(-5px);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0px);
-        opacity: 1;
-    }
+.next-btn{
+    float: right;
 }

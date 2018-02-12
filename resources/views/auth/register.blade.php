@@ -9,7 +9,7 @@
             <div class="form-card" id="form-card-1">
                 <h2 class="form-card-heading">Personal Information</h2>
                 <div class="input-row col-md-8">
-                    <span class="input-label hidden">Name</span>
+                    <span class="input-label hidden">Your Name</span>
                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Your Name">
                         @if ($errors->has('name'))
                             <span class="invalid-feedback">
@@ -35,6 +35,22 @@
                                     </span>
                                 @endif
                 </div>
+                <div class="input-row col-md-8">
+                        <span class="input-label hidden">Your Password</span>
+                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Your Password">
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                </div>
+                <div class="input-row col-md-8">
+                        <span class="input-label hidden">Confrim Password</span>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm Password">
+                </div>
+                <div class="input-row col-md-8">
+                    <button class="btn next-btn">Next <i></i></button>
+                </div>
             </div>
             <div class="form-card" id="form-card-2">
                 <h2 class="form-card-heading">Contact Information</h2>
@@ -45,6 +61,8 @@
             <div class="form-card" id="form-card-4">
                 <h2 class="form-card-heading">Payment Information]</h2>
             </div>
+            </form>
         </div>
     </div>
+</div>
 @endsection
