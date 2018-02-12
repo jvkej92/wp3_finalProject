@@ -1,0 +1,30 @@
+#form-view{
+    margin: auto;
+    width: 30%;
+    overflow: hidden;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+#form-container{
+    width: 450%;
+}
+
+#form-container>form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 600px;
+    width: 100%;
+}
+
+.form-card{
+    position: relative;
+    height: 600px;
+    flex-basis: 24%;
+    margin-right: 2%;
+}
+
+.input-row{
+    width: 100%;
+}
