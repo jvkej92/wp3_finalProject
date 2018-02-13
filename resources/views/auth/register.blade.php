@@ -4,7 +4,7 @@
 <div id="form-header">Register</div>
     <div id="form-view">
         <div id="form-container" class="second-active">
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="/signup/validate">
             @csrf
             <div class="form-card" id="form-card-1">
                 <h2 class="form-card-heading">Personal Information</h2>

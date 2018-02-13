@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\ShippingInfo;
+use App\Shipping;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -75,7 +75,7 @@ class RegisterController extends Controller
             'birthday' => $data['birthday'],
         ]);
 
-        $shippipng = ShippingInfo::create([
+        $Shipping = Shipping::create([
             'address' => $data['address'],
         ]);
 

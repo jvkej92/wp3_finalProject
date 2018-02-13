@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShippingInfo extends Migration
+class CreateShippingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateShippingInfo extends Migration
      */
     public function up()
     {
-        Schema::create('shippingInfo', function (Blueprint $table) {
+        Schema::create('shippings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
@@ -31,6 +31,6 @@ class CreateShippingInfo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('shipping');
     }
 }

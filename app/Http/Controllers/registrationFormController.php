@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\ShippingInfo;
+use App\Shipping;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -46,5 +46,27 @@ class registrationFormController extends Controller
                 'zip' => 'exists:states, zip'
             ]);
         }
+    }
+
+    protected function create(Request $data)
+    {
+        $user = new User;
+
+        $user->name = $data->name;
+        $user->email = $data->email;
+        $user->password = $data->password;
+        $user->birthday = $data->birthday; 
+        $user->save();
+        
+        $userID = DB::getPdo()->lastInsertId();
+
+        $shipping = new Shipping;
+        $shipping->user_id = $userID; 
+        $shipping->address = $data->address;
+        $shipping->city = $data->city;
+        $shipping->state = $data->state;
+        $shipping->zip = $data->zip;
+
+        return ($user);
     }
 }
