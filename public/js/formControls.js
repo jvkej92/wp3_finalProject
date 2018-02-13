@@ -1,5 +1,13 @@
 $(document).ready(function(){
     
+      /******************/
+     /*ASYNC VALIDATION*/
+    /******************/
+    
+    
+
+
+
       /************/
      /*Animations*/
     /************/
@@ -23,35 +31,35 @@ $(document).ready(function(){
     });
 
     //Gets pixels of the current form size
-    var formWidth = $('#form-view').width();
+    // var formWidth = $('#form-view').width();
 
-    $(".next-btn").click(function(e){
-        e.preventDefault();
-        var errors = 0;
+    // $(".next-btn").click(function(e){
+    //     e.preventDefault();
+    //     var errors = 0;
 
-        $(this).parent().parent().find('input').each(function(){
-            if(!$(this)[0].checkValidity())
-                errors++;
-        });
+    //     $(this).parent().parent().find('input').each(function(){
+    //         if(!$(this)[0].checkValidity())
+    //             errors++;
+    //     });
 
-        if(!errors){
-            var currentPos = $('#form-container').css('left').split('p');
-            var newPosition = Number(currentPos[0]) - formWidth;
-            $('#form-container').css('left', `${newPosition}px`);
-        }
-        else{
-            // If the form is invalid, submit it. The form won't actually submit;
-            // this will just cause the browser to display the native HTML5 error messages.
-            $('form').find('.submit').click();
-        }
+    //     if(!errors){
+    //         var currentPos = $('#form-container').css('left').split('p');
+    //         var newPosition = Number(currentPos[0]) - formWidth;
+    //         $('#form-container').css('left', `${newPosition}px`);
+    //     }
+    //     else{
+    //         // If the form is invalid, submit it. The form won't actually submit;
+    //         // this will just cause the browser to display the native HTML5 error messages.
+    //         $('form').find('.submit').click();
+    //     }
 
-    });
+    // });
 
-    $(".prev-btn").click(function(e){
-        e.preventDefault();
-        var currentPos = $('#form-container').css('left').split('p');
-        var newPosition = Number(currentPos[0]) + formWidth;
-        $('#form-container').css('left', `${newPosition}px`);
-    });
+    // $(".prev-btn").click(function(e){
+    //     e.preventDefault();
+    //     var currentPos = $('#form-container').css('left').split('p');
+    //     var newPosition = Number(currentPos[0]) + formWidth;
+    //     $('#form-container').css('left', `${newPosition}px`);
+    // });
 
 });

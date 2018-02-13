@@ -8,10 +8,10 @@
     padding-bottom: 16px;
 } 
 
-
 #form-view{
     margin: auto;
-    width: 30%;
+    width: 95%;
+    max-width: 500px;
     overflow: hidden;
     border: 2px solid rgba(0,0,0,.2);
     box-shadow: 0 2px 4px rgba(0,0,0,.04);

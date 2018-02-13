@@ -75,7 +75,7 @@ class RegisterController extends Controller
             'birthday' => $data['birthday'],
         ]);
 
-        $shippipng = Shipping::create([
+        $shippipng = ShippingInfo::create([
             'address' => $data['address'],
         ]);
 
