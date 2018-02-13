@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\ShippingInfo;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,10 +52,11 @@ class RegisterController extends Controller
         $current = Carbon::today();
         $validDate = $current->subYears(21);
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:70',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'birthday' => 'required|date|before:' . $validDate
+            'birthday' => 'required|date|before:' . $validDate,
+            'address' => 'required|string|max:95'
         ]);
     }
 
@@ -66,11 +68,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'birthday' => $data['birthday'],
         ]);
+
+        $shippipng = Shipping::create([
+            'address' => $data['address'],
+        ]);
+
+        return ($user);
     }
 }

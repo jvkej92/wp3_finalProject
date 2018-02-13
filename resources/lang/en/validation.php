@@ -100,8 +100,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'birthday' => [
+            'before' => 'You must be 21 to join our wine club',
         ],
     ],
 

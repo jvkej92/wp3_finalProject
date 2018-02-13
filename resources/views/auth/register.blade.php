@@ -3,11 +3,12 @@
 @section('content')
 <div id="form-header">Register</div>
     <div id="form-view">
-        <div id="form-container">
+        <div id="form-container" class="second-active">
             <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="form-card" id="form-card-1">
                 <h2 class="form-card-heading">Personal Information</h2>
+                <hr/>
                 <div class="input-row col-md-8">
                     <span class="input-label hidden">Your Name</span>
                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Your Name">
@@ -18,8 +19,8 @@
                         @endif
                 </div>
                 <div class="input-row col-md-8">
-                        <span class="input-label hidden">Birth Date</span>
-                        <input id="birthday" type="date" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="birthday" value="{{ old('birthday') }}" required>
+                        <span class="input-label">Birth Date</span>
+                        <input id="birthday" type="date" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="birthday" value="{{ old('birthday') }}" required placeholder="Birth Date">
                                 @if ($errors->has('birthday'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('birthday') }}</strong>
@@ -49,17 +50,41 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm Password">
                 </div>
                 <div class="input-row col-md-8">
-                    <button class="btn next-btn">Next <i></i></button>
+                    <button class="btn next-btn">Next <i class="fas fa-chevron-right fa-sm"></i></button>
                 </div>
             </div>
             <div class="form-card" id="form-card-2">
-                <h2 class="form-card-heading">Contact Information</h2>
+                <h2 class="form-card-heading">Shipping Information</h2>
+                <hr/>
+                <div class="input-row col-md-8">
+                    <span class="input-label hidden">Address</span>
+                    <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required autofocus placeholder="Address">
+                        @if ($errors->has('address'))
+                            <span class="invalid-feedback">
+                                <strong>{{ $errors->first('address') }}</strong>
+                            </span>
+                        @endif
+                </div>
+                <div class="input-row col-md-8">
+                        <span class="input-label">City</span>
+                        <input id="city" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required placeholder="City">
+                                @if ($errors->has('city'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                </div>
+                <div class="input-row col-md-8">
+                <button class="btn prev-btn">Prev <i class="fas fa-chevron-left fa-sm"></i></button>
+                <button class="btn next-btn">Next <i class="fas fa-chevron-right fa-sm"></i></button>
+                </div>
             </div>
             <div class="form-card" id="form-card-3">
-                <h2 class="form-card-heading">Shipping Information</h2>
-            </div>
-            <div class="form-card" id="form-card-4">
-                <h2 class="form-card-heading">Payment Information]</h2>
+                <h2 class="form-card-heading">Payment Information</h2>
+                <div class="input-row col-md-8">
+                    <button class="btn prev-btn">Prev <i class="fas fa-chevron-left fa-sm"></i></button>
+                    <button class="btn submit">Submit <i class="fas fa-chevron-right fa-sm"></i></button>
+                </div>
             </div>
             </form>
         </div>

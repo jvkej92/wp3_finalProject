@@ -1,3 +1,14 @@
+#form-header{
+    margin: auto;
+    width: 30%;
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+} 
+
+
 #form-view{
     margin: auto;
     width: 30%;
@@ -7,25 +18,33 @@
     background: #ffffff;
     border-radius: 3px;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 #form-container{
-    width: 450%;
+    width: 300%;
+    position: relative;
+    left: 0;
+    transition-duration: .3s;
+    box-sizing: border-box;
 }
 
 #form-container>form{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    height: 500px;
+    align-content: space-around;
+    justify-content: space-around;
+    height: 550px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .form-card{
     position: relative;
-    height: 500px;
-    flex-basis: 24%;
-    margin-right: 2%;
+    height: 550px;
+    flex-basis: 30%;
+    box-sizing: border-box;
 }
 
 .input-row{
