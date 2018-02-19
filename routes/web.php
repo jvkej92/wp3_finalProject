@@ -23,3 +23,4 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/states', 'stateController@states');
+Route::get('/states/{zip}', 'stateController@stateByZip');

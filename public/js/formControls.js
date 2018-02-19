@@ -14,7 +14,20 @@ $(document).ready(function(){
             select.append(option);
         });
     })
+
+    $('input[name="zip"]').blur(function(){
+        if($(this).val()){
+            var zip = $(this).val();
+            getStateByZip(zip);
+        }
+    });
     
+    function getStateByZip(zip){
+        var uri = `/states/${zip}`;
+        fetch(uri).then(response => response.json()).then(response => {
+            $(`option[value="${response}"]`).prop('selected', true);
+        })
+    }
     
 
 

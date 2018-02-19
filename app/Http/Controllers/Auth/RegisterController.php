@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Carbon\Carbon;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -58,8 +59,6 @@ class RegisterController extends Controller
             'birthday' => 'required|date|before:' . $validDate,
             'address' => 'required|string|max:95',
             'city' => 'required|string|max:100',
-            'state' => 'required|exists:states, abrv',
-            'zip' => 'required|exists:states, zip'
         ]);
     }
 
@@ -84,6 +83,7 @@ class RegisterController extends Controller
             'user_id' => $userID,
             'address' => $data['address'],
             'city' => $data['city'],
+            'state' => $data['state'],
             'zip' => $data['zip']
         ]);
 

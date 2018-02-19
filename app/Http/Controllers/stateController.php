@@ -11,4 +11,10 @@ class stateController extends Controller
         $states = DB::table('states')->distinct()->select('state', 'abrv')->get();
         return $states;
     }
+
+    function stateByZip($zip){
+        $state = DB::table('states')->where('zip', $zip)->first();
+        $stateAbrv = $state->abrv;
+        return $stateAbrv;
+    }
 }
