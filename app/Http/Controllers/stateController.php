@@ -13,8 +13,7 @@ class stateController extends Controller
     }
 
     function stateByZip($zip){
-        $state = DB::table('states')->where('zip', $zip)->first();
-        $stateAbrv = $state->abrv;
-        return $stateAbrv;
+        $state = DB::table('states')->where('zip', $zip)->take(1)->get();
+        return $state;
     }
 }

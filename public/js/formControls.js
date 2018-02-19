@@ -13,10 +13,17 @@ $(document).ready(function(){
             var option  = `<option value="${abrv}">${state}</option>`;
             select.append(option);
         });
-    })
+    });
 
     $('input[name="zip"]').blur(function(){
         if($(this).val()){
+            var zip = $(this).val();
+            getStateByZip(zip);
+        }
+    });
+
+    $('input[name="zip"').keyup(function(){
+        if($(this).val().length = 5){
             var zip = $(this).val();
             getStateByZip(zip);
         }
@@ -25,8 +32,10 @@ $(document).ready(function(){
     function getStateByZip(zip){
         var uri = `/states/${zip}`;
         fetch(uri).then(response => response.json()).then(response => {
-            $(`option[value="${response}"]`).prop('selected', true);
-        })
+            var state = $.map(response, function(el) { return el });
+            $('#state').val(state[0].abrv);
+            $('input[name="city"]').val(state[0].city);
+        });
     }
     
 

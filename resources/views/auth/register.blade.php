@@ -77,7 +77,7 @@
                 </div>
                 <div class="input-row col-md-8">
                         <span class="input-label">State</span>
-                        <select class="form-control" name="state">
+                        <select id="state" class="form-control" name="state">
 
                         </select>
                                 @if ($errors->has('state'))
@@ -103,6 +103,8 @@
             <div class="form-card" id="form-card-3">
                 <h2 class="form-card-heading">Payment Information</h2>
                 <div class="input-row col-md-8">
+                <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+                @yield('braintree')
                     <button class="btn prev-btn">Prev <i class="fas fa-chevron-left fa-sm"></i></button>
                     <button class="btn submit">Submit <i class="fas fa-chevron-right fa-sm"></i></button>
                 </div>
