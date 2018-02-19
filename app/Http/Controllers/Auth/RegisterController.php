@@ -58,7 +58,7 @@ class RegisterController extends Controller
             'birthday' => 'required|date|before:' . $validDate,
             'address' => 'required|string|max:95',
             'city' => 'required|string|max:100',
-            'state' => 'required|exists:states, state',
+            'state' => 'required|exists:states, abrv',
             'zip' => 'required|exists:states, zip'
         ]);
     }

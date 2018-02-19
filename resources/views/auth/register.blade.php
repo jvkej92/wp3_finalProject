@@ -77,23 +77,21 @@
                 </div>
                 <div class="input-row col-md-8">
                         <span class="input-label">State</span>
-                        <select class="form-control" name="item_id">
-                            @foreach($items as $item)
-                                <option value="{{$item->item_id}}">{{$item->id}}</option>
-                            @endforeach
+                        <select class="form-control" name="state">
+
                         </select>
-                                @if ($errors->has('city'))
+                                @if ($errors->has('state'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('city') }}</strong>
+                                        <strong>{{ $errors->first('state') }}</strong>
                                     </span>
                                 @endif
                 </div>
                 <div class="input-row col-md-8">
-                        <span class="input-label">Zip</span>
-                        <input id="city" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required placeholder="City">
-                                @if ($errors->has('city'))
+                        <span class="input-label">Zip Code</span>
+                        <input id="zip" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="zip" value="{{ old('zip') }}" required placeholder="Zip Code">
+                                @if ($errors->has('zip'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('city') }}</strong>
+                                        <strong>{{ $errors->first('zip') }}</strong>
                                     </span>
                                 @endif
                 </div>

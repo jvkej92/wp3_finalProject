@@ -19,9 +19,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/signup/validate', 'registrationFormController@validator');
 Route::group(['middleware' => 'auth'], function () {
-Route::get('/states', function(){
-    $states = DB::table('states')->get();
-    return $states;
+   
 });
-    
-});
+
+Route::get('/states', 'stateController@states');

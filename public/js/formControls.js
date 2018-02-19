@@ -1,8 +1,19 @@
 $(document).ready(function(){
     
-      /******************/
-     /*ASYNC VALIDATION*/
-    /******************/
+      /*******************/
+     /*Dynamic Population*/
+    /********************/
+        
+    fetch("/states").then(response => response.json()).then(response => {
+        var select = $('select[name="state"]');
+        var states = $.map(response, function(el) { return el });
+        $.each(states, function(i, item){
+            var abrv = states[i].abrv;
+            var state = states[i].state;
+            var option  = `<option value="${abrv}">${state}</option>`;
+            select.append(option);
+        });
+    })
     
     
 
