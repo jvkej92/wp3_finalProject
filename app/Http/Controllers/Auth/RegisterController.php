@@ -56,7 +56,10 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'birthday' => 'required|date|before:' . $validDate,
-            'address' => 'required|string|max:95'
+            'address' => 'required|string|max:95',
+            'city' => 'required|string|max:100',
+            'state' => 'required|exists:states, state',
+            'zip' => 'required|exists:states, zip'
         ]);
     }
 
@@ -75,8 +78,13 @@ class RegisterController extends Controller
             'birthday' => $data['birthday'],
         ]);
 
+        $userID = DB::getPdo()->lastInsertId();
+
         $Shipping = Shipping::create([
+            'user_id' => $userID,
             'address' => $data['address'],
+            'city' => $data['city'],
+            'zip' => $data['zip']
         ]);
 
         return ($user);

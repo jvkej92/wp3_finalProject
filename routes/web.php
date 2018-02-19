@@ -15,11 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
-
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/signup/validate', 'registrationFormController@validator');
-//Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
+Route::get('/states', function(){
+    $states = DB::table('states')->get();
+    return $states;
+});
     
-    
-//});
+});

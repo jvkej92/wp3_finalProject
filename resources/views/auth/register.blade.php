@@ -4,8 +4,9 @@
 <div id="form-header">Register</div>
     <div id="form-view">
         <div id="form-container" class="second-active">
-            <form method="POST" action="/signup/validate">
+            <form method="POST" action="{{ route('register') }}">
             @csrf
+            <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
             <div class="form-card" id="form-card-1">
                 <h2 class="form-card-heading">Personal Information</h2>
                 <hr/>
@@ -67,6 +68,28 @@
                 </div>
                 <div class="input-row col-md-8">
                         <span class="input-label">City</span>
+                        <input id="city" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required placeholder="City">
+                                @if ($errors->has('city'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                </div>
+                <div class="input-row col-md-8">
+                        <span class="input-label">State</span>
+                        <select class="form-control" name="item_id">
+                            @foreach($items as $item)
+                                <option value="{{$item->item_id}}">{{$item->id}}</option>
+                            @endforeach
+                        </select>
+                                @if ($errors->has('city'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                </div>
+                <div class="input-row col-md-8">
+                        <span class="input-label">Zip</span>
                         <input id="city" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required placeholder="City">
                                 @if ($errors->has('city'))
                                     <span class="invalid-feedback">
