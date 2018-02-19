@@ -15,6 +15,11 @@
     <link href="{{ asset('css/formStyle.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fa-svg-with-js.css') }}" rel="stylesheet">
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/formControls.js') }}"></script>
+    <script src="{{ asset('js/fontawesome-all.min.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -67,10 +72,6 @@
         </main>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/formControls.js') }}"></script>
-    <script src="{{ asset('js/fontawesome-all.min.js') }}"></script>
+
 </body>
 </html>

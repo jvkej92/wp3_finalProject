@@ -3,7 +3,11 @@ $(document).ready(function(){
       /*******************/
      /*Dynamic Population*/
     /********************/
-    
+    fetch('/plans').then(response => response.json()).then(response => {
+        console.log(response);
+    });
+
+
     //Gets all states and generates them as option elements
     fetch("/states").then(response => response.json()).then(response => {
         var select = $('select[name="state"]');
@@ -96,4 +100,15 @@ $(document).ready(function(){
         $('#form-container').css('left', `${newPosition}px`);
     });
 
+    $('.delivery-btn').click(function(e){
+        e.preventDefault();
+        if(!$(this).hasClass('selected')) {
+            if($('.delivery-btn').hasClass('selected')){
+                $('.delivery-btn').toggleClass('selected');
+            }
+            else{
+                $(this).toggleClass('selected');
+            }
+        }
+    });
 });
