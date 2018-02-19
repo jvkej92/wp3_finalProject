@@ -3,7 +3,8 @@ $(document).ready(function(){
       /*******************/
      /*Dynamic Population*/
     /********************/
-        
+    
+    //Gets all states and generates them as option elements
     fetch("/states").then(response => response.json()).then(response => {
         var select = $('select[name="state"]');
         var states = $.map(response, function(el) { return el });
@@ -15,13 +16,15 @@ $(document).ready(function(){
         });
     });
 
+    //On blur if the the length of value in the input is equal to 5 send the variable to the getStateByZip function 
     $('input[name="zip"]').blur(function(){
-        if($(this).val()){
+        if($(this).val().length = 5){
             var zip = $(this).val();
             getStateByZip(zip);
         }
     });
 
+    //On keyup if the the length of value in the input is equal to 5 send the variable to the getStateByZip function
     $('input[name="zip"').keyup(function(){
         if($(this).val().length = 5){
             var zip = $(this).val();
@@ -29,6 +32,7 @@ $(document).ready(function(){
         }
     });
     
+    //gets an array containing the matching entrey in the state table 
     function getStateByZip(zip){
         var uri = `/states/${zip}`;
         fetch(uri).then(response => response.json()).then(response => {
@@ -37,9 +41,6 @@ $(document).ready(function(){
             $('input[name="city"]').val(state[0].city);
         });
     }
-    
-
-
 
       /************/
      /*Animations*/

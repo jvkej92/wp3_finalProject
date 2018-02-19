@@ -22,7 +22,7 @@
 }
 
 #form-container{
-    width: 300%;
+    width: 400%;
     position: relative;
     left: 0;
     transition-duration: .3s;
@@ -43,13 +43,18 @@
 .form-card{
     position: relative;
     height: 550px;
-    flex-basis: 30%;
+    flex-basis: 21%;
     box-sizing: border-box;
 }
 
+.form-hidden{
+    display: none;
+}
+
 .input-row{
-    width: 85%;
+    width: 95%;
     margin: 16px auto;
+    max-width: 100%;
 }
 
 .input-label>input.form-control{
