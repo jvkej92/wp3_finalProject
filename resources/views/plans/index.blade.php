@@ -4,8 +4,8 @@
 <div id="form-header">Membership Details</div>
     <div id="form-view">
         <div id="form-container" class="second-active">
-            <form method="POST" action="{{ url('/subscribe') }}">
-            @csrf
+            <form action="{{ route('/subscribe') }}" method="post">
+            {{ csrf_field() }}
             <div class="form-card" id="form-card-1">
                 <h2 class="form-card-heading">Choose your prefered delivery: </h2>
                 <hr/>
