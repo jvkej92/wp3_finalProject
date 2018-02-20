@@ -10,7 +10,7 @@
             <div class="form-card" id="form-card-1">
                 <h2 class="form-card-heading">Personal Information</h2>
                 <hr/>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                     <span class="input-label hidden">Your Name</span>
                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Your Name">
                         @if ($errors->has('name'))
@@ -19,7 +19,7 @@
                             </span>
                         @endif
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                         <span class="input-label">Birth Date</span>
                         <input id="birthday" type="date" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="birthday" value="{{ old('birthday') }}" required placeholder="Birth Date">
                                 @if ($errors->has('birthday'))
@@ -28,7 +28,7 @@
                                     </span>
                                 @endif
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                         <span class="input-label hidden">Your Email</span>
                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required placeholder="Your Email">
                                 @if ($errors->has('email'))
@@ -37,7 +37,7 @@
                                     </span>
                                 @endif
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                         <span class="input-label hidden">Your Password</span>
                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Your Password">
                                 @if ($errors->has('password'))
@@ -46,18 +46,18 @@
                                     </span>
                                 @endif
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                         <span class="input-label hidden">Confrim Password</span>
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm Password">
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                     <button class="btn next-btn">Next <i class="fas fa-chevron-right fa-sm"></i></button>
                 </div>
             </div>
             <div class="form-card" id="form-card-2">
                 <h2 class="form-card-heading">Billing Information</h2>
                 <hr/>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                     <span class="input-label hidden">Address</span>
                     <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required autofocus placeholder="Address">
                         @if ($errors->has('address'))
@@ -66,7 +66,7 @@
                             </span>
                         @endif
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                         <span class="input-label">City</span>
                         <input id="city" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required placeholder="City">
                                 @if ($errors->has('city'))
@@ -75,7 +75,7 @@
                                     </span>
                                 @endif
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                         <span class="input-label">State</span>
                         <select id="state" class="form-control" name="state">
 
@@ -86,7 +86,7 @@
                                     </span>
                                 @endif
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                         <span class="input-label">Zip Code</span>
                         <input id="zip" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="zip" value="{{ old('zip') }}" required placeholder="Zip Code">
                                 @if ($errors->has('zip'))
@@ -95,9 +95,9 @@
                                     </span>
                                 @endif
                 </div>
-                <div class="input-row col-md-8">
+                <div class="input-row col-md-12">
                 <button class="btn prev-btn"><i class="fas fa-chevron-left fa-sm"></i> Prev</button>
-                <button class="btn submit">Submit <i class="fas fa-chevron-right fa-sm"></i></button>
+                <button class="btn submit" style="float: right">Continue to membership details <i class="fas fa-chevron-right fa-sm"></i></button>
                 </div>
             </div>
             </form>

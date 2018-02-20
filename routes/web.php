@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/signup/validate', 'registrationFormController@validator');
 Route::group(['middleware' => 'auth'], function () {
-    Route::post('/subscribe', 'SubscriptionsController@store');
-    Route::get('/plan/{plan}', 'PlansController@show');
-    Route::get('/braintree/token', 'BraintreeTokenController@token');
 });
+Route::post('/subscribe', 'SubscriptionsController@store');
+Route::get('/plans', 'PlansController@index')->name('membership');
+Route::get('/plans/{plan}', 'PlansController@show');
+Route::get('/braintree/token', 'BraintreeTokenController@token');
 Route::get('/states', 'stateController@states');
 Route::get('/states/{zip}', 'stateController@stateByZip');

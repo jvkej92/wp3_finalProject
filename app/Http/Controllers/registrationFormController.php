@@ -15,7 +15,7 @@ class registrationFormController extends Controller
     use RegistersUsers;
 
     //Where the user is redirected after registration
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/membership';
 
     public function __construct() {
         $this->middleware('guest');

@@ -52,9 +52,8 @@
 }
 
 .input-row{
-    width: 95%;
     margin: 16px auto;
-    max-width: 100%;
+    min-height: 64px;
 }
 
 .input-label>input.form-control{
@@ -75,12 +74,10 @@
     float: right;
 }
 
-.delivery-btn{
-    font-size: 2em;
-    margin: 64px 0px;    
+.list-group-item{
+    margin: 24px auto;
 }
-
-.selected{
-    background: #a0a5af;
-    border: 2px groove rgba(0,0,0,.2);
+.total{
+    float: right;
+    position: relative;
 }
