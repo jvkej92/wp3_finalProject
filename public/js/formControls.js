@@ -8,13 +8,13 @@ $(document).ready(function(){
         var cost = $(this).data('cost');
         $('input[name="plan"]').val(slug);
         $('.total').html(`Total: $${cost}.00`).css('float', 'right');
-        if($('div .add-payment-method-view'))
-            dropInBraintree();
+        // if($('div .add-payment-method-view'))
+        //     dropInBraintree();
     });
 
-    $('.remove-form').click(function(){
-        $('#dropin-container').empty();
-    });
+    // $('.remove-form').click(function(){
+    //     $('#dropin-container').empty();
+    // });
     
 
     //Gets all states and generates them as option elements

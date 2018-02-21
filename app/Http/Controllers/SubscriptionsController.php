@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\plan;
+use App\Plan;
+use App\Subscription;
 
 class SubscriptionsController extends Controller
 {
@@ -15,7 +16,7 @@ class SubscriptionsController extends Controller
         $request->user()->newSubscription('main', $plan->braintree_plan)->create($request->payment_method_nonce);
     
         //Redirect to home after a successful subscription
-        return redirect('home');
+        return view('home');
     }    
 
 }
