@@ -9,6 +9,7 @@ use App\Subscription;
 class SubscriptionsController extends Controller
 {
     public function subscribe(Request $request) {
+        
         //get the plan after submitting the form
         $plan = Plan::where('slug', $request->plan)->first();
 

@@ -104,6 +104,7 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/formControls.js') }}"></script>
 @endsection
 
 

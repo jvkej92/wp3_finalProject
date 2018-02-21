@@ -1,7 +1,7 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Playfair+Display:400,400i');
+
 
 // Variables
 @import "variables";
@@ -12,4 +12,14 @@
 .navbar-laravel {
   background-color: #252525;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav-link{
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-transform: capitalize;
 }

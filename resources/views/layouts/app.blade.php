@@ -18,7 +18,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/formControls.js') }}"></script>
     <script src="{{ asset('js/fontawesome-all.min.js') }}"></script>
 </head>
 <body>
@@ -32,10 +31,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse col-10" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li><a class="nav-link text-light" href="#">Wines</a></li>
+                        <li><a class="nav-link text-light" href="#">Pricing</a></li>
+                        <li><a class="nav-link text-light" href="#">About</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
