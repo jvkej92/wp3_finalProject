@@ -8,10 +8,10 @@ use App\Subscription;
 
 class SubscriptionsController extends Controller
 {
-    public function store(Request $request) {
+    public function subscribe(Request $request) {
         //get the plan after submitting the form
-        $plan = Plan::findOrFail($request->plan);
-        
+        $plan = Plan::where('slug', $request->plan)->first();
+
         //suscribe the user
         $request->user()->newSubscription('main', $plan->braintree_plan)->create($request->payment_method_nonce);
     

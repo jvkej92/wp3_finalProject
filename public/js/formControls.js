@@ -3,7 +3,8 @@ $(document).ready(function(){
       /*******************/
      /*Dynamic Population*/
     /********************/
-    $('.plan-btn').click(function(){
+    $('.plan-btn').click(function(e){
+        e.preventDefault();
         var slug = $(this).data('slug');
         var cost = $(this).data('cost');
         $('input[name="plan"]').val(slug);
