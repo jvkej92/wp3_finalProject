@@ -7,7 +7,7 @@
             <form action="{{ route('subscribe') }}" method="post">
             {{ csrf_field() }}
             <div class="form-card" id="form-card-1">
-                <h2 class="form-card-heading">Choose your prefered delivery: </h2>
+                <h2 class="form-card-heading">Choose your plan: </h2>
                 <hr/>
                 <div class="input-row col-md-12">
                 @foreach ($plans as $plan)

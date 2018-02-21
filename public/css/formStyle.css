@@ -1,9 +1,9 @@
 #form-header{
     margin: auto;
-    width: 30%;
-    font-family: Raleway;
-    font-weight: 300;
-    font-size: 2.5em;
+    width: 95%;
+    max-width: 500px;
+    font-family: "Playfair Display";
+    font-size: 2.5rem;
     text-transform: uppercase;
     padding-bottom: 16px;
 } 
