@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Plan;
-use Exception;
 
 class PlansController extends Controller
 {
@@ -17,6 +16,7 @@ class PlansController extends Controller
         if($user->hasRole('subscribed')){
             return redirect('/');
         }
+        
         return view('plans.index')->with(['plans' => Plan::get()]);
     }
 

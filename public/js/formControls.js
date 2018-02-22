@@ -59,7 +59,7 @@ $(document).ready(function(){
       /************/
      /*Animations*/
     /************/
-    var inputTrigger = 'input[type="text"], input[type="email"], input[type="password"]';
+    var inputTrigger = 'input[type="text"], input[type="email"], input[type="password"], iframe input';
     //Clear placeholder and add animation to floating label
     $(inputTrigger).focusin(function(){
         var parentContainer = $(this).parent();

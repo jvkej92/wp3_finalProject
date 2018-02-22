@@ -73,3 +73,11 @@
     float: right;
     position: relative;
 }
+
+.form-control{
+    max-height: 34px;
+}
+
+.form-control>iframe{
+    position: relative;
+}
