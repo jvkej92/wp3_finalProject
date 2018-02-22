@@ -12,6 +12,8 @@ class User extends Authenticatable
     use Notifiable;
     use Billable;
     use HasRoles;
+
+    protected $guard_name = 'web';
     /**
      * The attributes that are mass assignable.
      *
