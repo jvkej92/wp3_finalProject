@@ -12,22 +12,14 @@ class RolesAndPermissionsSeeder extends Seeder
         app()['cache']->forget('spatie.permission.cache');
 
         // create permissions
-        Permission::create(['name' => 'edit articles']);
-        Permission::create(['name' => 'delete articles']);
-        Permission::create(['name' => 'publish articles']);
-        Permission::create(['name' => 'unpublish articles']);
-
+        Permission::create(['name' => 'access dashboard']);
+        
         // create roles and assign existing permissions
-        $role = Role::create(['name' => 'writer']);
-        $role->givePermissionTo('edit articles');
-
         $role = Role::create(['name' => 'admin']);
-        $role->givePermissionTo(['publish articles', 'unpublish articles']);
+        $role->givePermissionTo(['access dashboard']);
 
         $role = Role::create(['name' => 'registered']);
-        $role->givePermissionTo(['edit articles']);
-
+        
         $role = Role::create(['name' => 'subscribed']);
-        $role->givePermissionTo(['edit articles']);
     }
 }

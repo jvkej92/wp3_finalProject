@@ -19,10 +19,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('/plans','SubscriptionsController');
-    Route::resource('/subcribe','PlansController');
     Route::get('/braintree/token', 'BraintreeTokenController@token');
-    Route::post('/subscribe', 'SubscriptionsController@subscribe')->name('subscribe');
+    Route::post('/plans/subscribe', 'PlansController@subscribe')->name('subscribe');    
     Route::get('/plans', 'PlansController@index');    
 });
 
