@@ -59,7 +59,7 @@ $(document).ready(function(){
       /************/
      /*Animations*/
     /************/
-    var inputTrigger = 'input[type="text"], input[type="email"], input[type="password"], iframe input';
+    var inputTrigger = 'input[type="text"], input[type="email"], input[type="password"]';
     //Clear placeholder and add animation to floating label
     $(inputTrigger).focusin(function(){
         var parentContainer = $(this).parent();
@@ -121,4 +121,7 @@ $(document).ready(function(){
             }
         }
     });
+
+    $('iframe').contents().find('body').css('height', '0');
+    
 });

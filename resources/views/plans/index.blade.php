@@ -6,6 +6,8 @@
         <div id="form-container" class="second-active">
             <form id="form" action="{{ route('subscribe') }}" method="post">
             {{ csrf_field() }}
+            <input type="hidden" name="plan" value="">
+            <input type="hidden" id="nonce" name="payment_method_nonce" value="">
             <div class="form-card" id="form-card-1">
                 <h2 class="form-card-heading">Choose your plan: </h2>
                 <hr/>
@@ -19,152 +21,81 @@
                                         <p>{{ $plan->description }}</p>
                                     @endif
                                 </div>
-
                                 <a href="#" class="btn plan-btn next-btn" data-slug="{{ $plan->slug }}" data-cost="{{ $plan->cost }}">Choose Plan</a>
-
                             </li>
                         @endforeach
                 </div>
             </div>
+            
             <div class="form-card" id="form-card-2">
                 <h2 class="form-card-heading">Payment Information</h2>
+                <div id="paypal-container"></div>
                 <hr/>
-                <div class="input-row col-md-12">
-                    <label for="card-number" class="input-label hidden">Card Number</label>
-                    <div id="card-number" class="form-control"></div>
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <label class="control-label">Card Number</label>
+                        <!--  Hosted Fields div container -->
+                        <div class="form-control" id="card-number"></div>
+                        <span class="helper-text"></span>
+                    </div>
                 </div>
-                <div class="input-row col-md-12">
-                    <label for="cvv" class="input-label hidden">CVV</label>
-                    <div id="cvv" class="form-control"></div>
+                <div class="row justify-content-between align-items-end px-1">
+                        <label class="control-label col-5">Expiration Date</label>
+                        <label class="control-label col-4 text-align-right">Security Code</label>
                 </div>
-
-                <div class="input-row col-md-12">
-                    <label for="expiration-date" class="input-label hidden">Expiration Date</label>
-                    <div id="expiration-date" class="form-control"></div>
-                </div>
-
-                <div class="input-row col-md-12">
-                                    <h3 class="total"></h3>
-                </div>
-                <div class="input-row col-md-12">
-                <button class="btn btn-primary prev-btn remove-form"><i class="fas fa-chevron-left fa-sm"></i> Prev</button>
-                <input type="submit" value="Pay" id="payment-button" style="float: right;" class="btn btn-primary btn-flat hidden" type="submit">Pay now</button>
+                <div class="row mb-4 justify-content-start align-items-end px-3">
+                            <!--  Hosted Fields div container -->
+                            <div class="form-control col-2 mr-1" id="expiration-month"></div>
+                            <div class="form-control col-2" id="expiration-year"></div>
+                            <div class="form-control col-4 ml-auto p-2" id="cvv"></div>
+                    </div>
+                    <div class="row justify-content-end mb-2">
+                      <h3 class="total">Total: $</h3>
+                    </div>
+                    <hr/>
+                    <div class="row col-sm-12 justify-content-center mt-5"> 
+                            <button value="submit" id="pay-submit" class="btn btn-success btn-block">Pay with <span id="card-type">Card</span></button>
+                    </div>
+                    <a href="#" class="prev-btn"><< Back</a>
                 </div>
             </div>
             </form>
         </div>
     </div>
 </div>
+<!-- Load Paypal Option -->
+<script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+
 <script src="{{ asset('js/formControls.js') }}"></script>
 <!-- Load the required client component. -->
 <script src="https://js.braintreegateway.com/web/3.31.0/js/client.min.js"></script>
 
 <!-- Load Hosted Fields component. -->
 <script src="https://js.braintreegateway.com/web/3.31.0/js/hosted-fields.min.js"></script>
+
+<!-- Load Paypal Form Loader. -->
+<script src="{{ asset('js/paypalHostedForms.js') }}"></script>
+
+
+
+
 <script>
-    $.ajax({
-        url: '{{ url('
-        braintree / token ') }}'
-    }).done(function (response) {
-
-        braintree.hostedFields.create({
-            client: response.data.token,
-            styles: {
-                'input': {
-                    'font-size': '14px',
-                    'font-family': 'helvetica, tahoma, calibri, sans-serif',
-                    'color': '#3a3a3a'
-                },
-                ':focus': {
-                    'color': 'black'
-                }
-            },
-            fields: {
-                number: {
-                    selector: '#card-number',
-                    placeholder: '4111 1111 1111 1111'
-                },
-                cvv: {
-                    selector: '#cvv',
-                    placeholder: '123'
-                },
-                expirationMonth: {
-                    selector: '#expiration-month',
-                    placeholder: 'MM'
-                },
-                expirationYear: {
-                    selector: '#expiration-year',
-                    placeholder: 'YY'
-                },
-                postalCode: {
-                    selector: '#postal-code',
-                    placeholder: '90210'
-                }
+$.ajax({url: '/braintree/token'}).done(function (response) {
+     braintree.setup(response.data.token, "custom", {
+        paypal: {
+            container: "paypal-container",
+            $onReady: function () {
+                $('#payment-button').removeClass('hidden');
             }
-        }, function (err, hostedFieldsInstance) {
-            if (err) {
-                console.error(err);
-                return;
-            }
-
-            hostedFieldsInstance.on('validityChange', function (event) {
-                var field = event.fields[event.emittedBy];
-
-                if (field.isValid) {
-                    if (event.emittedBy === 'expirationMonth' || event.emittedBy === 'expirationYear') {
-                        if (!event.fields.expirationMonth.isValid || !event.fields.expirationYear.isValid) {
-                            return;
-                        }
-                    } else if (event.emittedBy === 'number') {
-                        $('#card-number').next('span').text('');
-                    }
-
-                    // Remove any previously applied error or warning classes
-                    $(field.container).parents('.form-group').removeClass('has-warning');
-                    $(field.container).parents('.form-group').removeClass('has-success');
-                    // Apply styling for a valid field
-                    $(field.container).parents('.form-group').addClass('has-success');
-                } else if (field.isPotentiallyValid) {
-                    // Remove styling  from potentially valid fields
-                    $(field.container).parents('.form-group').removeClass('has-warning');
-                    $(field.container).parents('.form-group').removeClass('has-success');
-                    if (event.emittedBy === 'number') {
-                        $('#card-number').next('span').text('');
-                    }
-                } else {
-                    // Add styling to invalid fields
-                    $(field.container).parents('.form-group').addClass('has-warning');
-                    // Add helper text for an invalid card number
-                    if (event.emittedBy === 'number') {
-                        $('#card-number').next('span').text('Looks like this card number has an error.');
-                    }
-                }
-            });
-
-            hostedFieldsInstance.on('cardTypeChange', function (event) {
-                // Handle a field's change, such as a change in validity or credit card type
-                if (event.cards.length === 1) {
-                    $('#card-type').text(event.cards[0].niceType);
-                } else {
-                    $('#card-type').text('Card');
-                }
-            });
-
-            $('.panel-body').submit(function (event) {
-                event.preventDefault();
-                hostedFieldsInstance.tokenize(function (err, payload) {
-                    if (err) {
-                        console.error(err);
-                        return;
-                    }
-
-                    // This is where you would submit payload.nonce to your server
-                    alert('Submit your nonce to your server here!');
-                });
-            });
-        });
+        },
+        onPaymentMethodReceived: function(obj){
+            $('#nonce').val(obj.nonce);
+            $('#form').submit();
+        }
     });
+});
 </script>
+
 @endsection
 
 

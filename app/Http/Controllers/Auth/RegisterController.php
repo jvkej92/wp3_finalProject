@@ -86,9 +86,7 @@ class RegisterController extends Controller
             'state' => $data['state'],
             'zip' => $data['zip']
         ]);
-
         $user->assignRole('registered');
-
         return ($user);
     }
 }
