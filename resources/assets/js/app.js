@@ -16,6 +16,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('register-component', require('./components/RegisterFormComponent.vue'));
+Vue.component('example-component', require('./components/SubscribeFormComponent.vue'));
 
 const app = new Vue({
     el: '#app'

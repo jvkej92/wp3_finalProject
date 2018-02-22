@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="form-header">Register</div>
+<div id="form-header" class="lead">Register</div>
     <div id="form-view">
         <div id="form-container" class="second-active">
             <form method="POST" action="{{ route('register') }}">
             @csrf
             <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
             <div class="form-card" id="form-card-1">
-                <h2 class="form-card-heading">Personal Information</h2>
+                <h2 class="card-title">Personal Information</h2>
                 <hr/>
                 <div class="input-row col-md-12">
                     <span class="input-label hidden">Your Name</span>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="form-header">Membership Details</div>
-    <div id="form-view">
+    <div id="form-view" class="card card-default">
         <div id="form-container" class="second-active">
             <form action="{{ route('subscribe') }}" method="post">
             {{ csrf_field() }}
@@ -29,7 +29,6 @@
             <div class="form-card" id="form-card-2">
                 <h2 class="form-card-heading">Payment Information</h2>
                 <hr/>
-
                 <div id="dropin-container"></div>
                 <input type="hidden" name="plan" value="slug">
                 <div class="input-row col-md-12">
@@ -44,7 +43,7 @@
         </div>
     </div>
 </div>
-<script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+<script src="{{ asset('js/formControls.js') }}"></script>
 <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
 <script>
     $.ajax({

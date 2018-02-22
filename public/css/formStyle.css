@@ -1,22 +1,14 @@
-#form-header{
-    margin: auto;
-    width: 95%;
-    max-width: 500px;
-    font-family: "Playfair Display";
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    padding-bottom: 16px;
-} 
-
 #form-view{
     margin: auto;
     width: 95%;
     max-width: 500px;
     overflow: hidden;
-    border: 2px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0,0,0,.2);
     box-shadow: 0 2px 4px rgba(0,0,0,.04);
     background: #ffffff;
     border-radius: 3px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     padding: 20px;
     box-sizing: border-box;
 }

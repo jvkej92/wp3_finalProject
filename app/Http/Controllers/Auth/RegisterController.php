@@ -73,7 +73,7 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => $data['password'],
             'birthday' => $data['birthday'],
         ]);
 
@@ -88,5 +88,9 @@ class RegisterController extends Controller
         ]);
 
         return ($user);
+    }
+
+    public function setPasswordAttribute($password){   
+        $this->attributes['password'] = bcrypt($password);
     }
 }
