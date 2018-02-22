@@ -20,7 +20,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/braintree/token', 'BraintreeTokenController@token');
-    Route::post('/plans/subscribe', 'PlansController@subscribe')->name('subscribe');    
+    Route::post('/plans/subscribe', 'PlansController@subscribe')->name('subscribe');
+    Route::get('/plans/subscribe', function(){
+        return redirect('/');
+    });        
     Route::get('/plans', 'PlansController@index');    
 });
 

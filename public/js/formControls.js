@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    
-      /*******************/
+  
+    /*******************/
      /*Dynamic Population*/
     /********************/
     $('.plan-btn').click(function(e){

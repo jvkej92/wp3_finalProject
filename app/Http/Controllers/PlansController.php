@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Plan;
+use Exception;
 
 class PlansController extends Controller
 {
@@ -20,26 +21,14 @@ class PlansController extends Controller
     }
 
     public function subscribe(Request $request) {
+        //get the plan after submitting the form
+        $plan = Plan::where('slug', $request->plan)->first();
 
-        try{
-            $user = Auth::user();
-            if($user->hasRole('subscribed')){
-                return redirect('/');
-            }
-            else{
-                //get the plan after submitting the form
-                $plan = Plan::where('slug', $request->plan)->first();
-
-                //suscribe the user
-                $request->user()->newSubscription('main', $plan->braintree_plan)->create($request->payment_method_nonce);
-            
-                $user->assignRole('subscribed');    
-                //Redirect to home after a successful subscription
-                return redirect('/');
-            }   
-        }
-        catch (\Exception $e) {
-            return redirect('/');
-        }
+        //suscribe the user
+        $request->user()->newSubscription('main', $plan->braintree_plan)->create($request->payment_method_nonce);
+    
+        $user->assignRole('subscribed');    
+        //Redirect to home after a successful subscription
+        return redirect('/');
     }
 } 
