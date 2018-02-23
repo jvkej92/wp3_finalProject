@@ -10050,3 +10050,11 @@ body {
   height: 120px;
 }
 
+.jumbotron {
+  font-family: "Playfair Display", serif;
+}
+
+main {
+  min-height: 100vh;
+}
+

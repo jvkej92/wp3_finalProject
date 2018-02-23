@@ -60,3 +60,11 @@ html, body {
   fill: $icon-color;
   height: 120px;
 }
+
+.jumbotron{
+  font-family: $font-family-serif;
+}
+
+main{
+  min-height: 100vh;
+}

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card col-4 m-auto p-0">
+    <div class="card col-4 mx-auto mt-4 p-0">
         <h3 class="card-header">
             Your Plan: {{$plan->name}}
         </h3>

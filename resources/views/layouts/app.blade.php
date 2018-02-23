@@ -75,7 +75,7 @@
             @yield('content')
         </main>
     </div>
-<footer class="page-footer font-small bg-dark stylish-color-dark py-5 mt-4">
+<footer class="sticky-footer bg-dark py-5 mt-4">
     <div class="container-fluid">
         <div class="col-10 m-auto">
             <div class="row justify-content-between">
@@ -89,7 +89,9 @@
                         </ul>
                 </div>
                 <div class="col-4"></div>
-                <div class="col-4"></div>
+                <div class="col-4 text-right">
+                    <img src="/img/VintedAndBottled.png" height="140">
+                </div>
             </div>
         </div>
     </div>
