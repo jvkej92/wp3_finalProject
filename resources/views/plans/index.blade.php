@@ -2,7 +2,7 @@
 
 @section('content')
 <link href="{{ asset('css/formStyle.css') }}" rel="stylesheet">
-<div id="form-header">Membership Details</div>
+<div id="form-header" class="mt-4">Membership Details</div>
     <div id="form-view" class="card card-default">
         <div id="form-container" class="second-active">
             <form id="form" action="{{ route('subscribe') }}" method="post">

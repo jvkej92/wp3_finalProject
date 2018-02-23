@@ -77,9 +77,16 @@
     </div>
 <footer class="sticky-footer bg-dark py-5 mt-4">
     <div class="container-fluid">
-        <div class="col-10 m-auto">
+        <div class="col-6 m-auto">
             <div class="row justify-content-between">
-                <div class="col-2">
+                <div class="col-3">
+                    <h3 class="heading-5 text-muted">Wines</h3>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="bg-dark"><a class="text-muted sm" href="#">This Months Wines</a></li>
+                        <li class="bg-dark"><a class="text-muted sm" href="#">Previous Boxes</a></li>
+                    </ul>
+                </div>
+                <div class="col-3">
                     <h3 class="heading-5 text-muted">About</h3>
                     <ul class="navbar-nav mr-auto">
                             <li class="bg-dark"><a class="text-muted sm" href="#">Minnesota Wines?</a></li>
@@ -88,9 +95,22 @@
                             <li class="bg-dark"><a class="text-muted sm" href="#">Faq</a></li>
                         </ul>
                 </div>
-                <div class="col-4"></div>
-                <div class="col-4 text-right">
+                <div class="col-3">
+                    <h3 class="heading-5 text-muted">Need Help?</h3>
+                    <ul class="navbar-nav mr-auto">
+                            <li class="bg-dark"><a class="text-muted sm" href="#">Customer Support</a></li>
+                            <li class="bg-dark"><a class="text-muted sm" href="#">Gift a Membership</a></li>
+                            <li class="bg-dark"><a class="text-muted sm" href="#">Pricing</a></li>
+                            <li class="bg-dark"><a class="text-muted sm" href="#">Contact</a></li>
+                        </ul>
+                </div>
+                <div class="col-1">
                     <img src="/img/VintedAndBottled.png" height="140">
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4 pt-4">
+                <div class="col-6 text-center text-muted">
+                    	&#169; 2018 - All Rights Reserved
                 </div>
             </div>
         </div>
