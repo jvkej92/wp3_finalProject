@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fa-svg-with-js.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -74,7 +75,24 @@
             @yield('content')
         </main>
     </div>
-
-
+<footer class="page-footer font-small bg-dark stylish-color-dark py-5 mt-4">
+    <div class="container-fluid">
+        <div class="col-10 m-auto">
+            <div class="row justify-content-between">
+                <div class="col-2">
+                    <h3 class="heading-5 text-muted">About</h3>
+                    <ul class="navbar-nav mr-auto">
+                            <li class="bg-dark"><a class="text-muted sm" href="#">Minnesota Wines?</a></li>
+                            <li class="bg-dark"><a class="text-muted sm" href="#">Our Wines</a></li>
+                            <li class="bg-dark"><a class="text-muted sm" href="#">Our Story</a></li>
+                            <li class="bg-dark"><a class="text-muted sm" href="#">Faq</a></li>
+                        </ul>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

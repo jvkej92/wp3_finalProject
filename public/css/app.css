@@ -9994,6 +9994,12 @@ a.text-dark:focus {
   }
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .navbar-laravel {
   background-color: #252525;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
