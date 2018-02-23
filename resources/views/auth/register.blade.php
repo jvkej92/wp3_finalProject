@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/formStyle.css') }}" rel="stylesheet">
 <div id="form-header" class="lead">Register</div>
     <div id="form-view">
         <div id="form-container" class="second-active">

@@ -44,3 +44,14 @@
   border-top-right-radius: 3px;
   box-sizing: border-box;
 } 
+
+.intro-home{
+  background-image: url('/img/intro-bg.jpg');
+  height: 100%;
+  max-height: 1080px;
+}
+
+.svg-icon svg{
+  fill: $icon-color;
+  height: 120px;
+}

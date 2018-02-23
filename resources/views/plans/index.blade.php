@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/formStyle.css') }}" rel="stylesheet">
 <div id="form-header">Membership Details</div>
     <div id="form-view" class="card card-default">
         <div id="form-container" class="second-active">

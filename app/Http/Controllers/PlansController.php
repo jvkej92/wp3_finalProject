@@ -34,6 +34,6 @@ class PlansController extends Controller
         $user = Auth::user();
         $user->assignRole('subscribed');    
         //Redirect to home after a successful subscription
-        return redirect('/');
+        return redirect('/dashboard');
     }
 } 

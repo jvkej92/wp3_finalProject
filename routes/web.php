@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
         return redirect('/');
     });        
     Route::get('/plans', 'PlansController@index');    
+    Route::get('/dashboard', 'DashboardController@index');
 });
 
 Route::get('/states', 'stateController@states');
