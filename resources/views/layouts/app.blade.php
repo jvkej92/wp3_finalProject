@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -19,6 +19,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/fontawesome-all.min.js') }}"></script>
+
+    @yield('scripts')
 </head>
 <body>
     <div id="app">
@@ -71,7 +73,7 @@
             </div>
         </nav>
 
-        <main class="pb-4">
+        <main class="py-4">
             @yield('content')
         </main>
     </div>

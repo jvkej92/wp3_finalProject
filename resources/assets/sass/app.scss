@@ -63,8 +63,15 @@ html, body {
 
 .jumbotron{
   font-family: $font-family-serif;
+  background: none;
 }
 
 main{
   min-height: 100vh;
+}
+
+.form-group input, .form-control{
+  border: none;
+  border-bottom: 2px solid $border-grey;
+  border-radius: 0;
 }

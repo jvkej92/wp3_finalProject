@@ -28,5 +28,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'DashboardController@index');
 });
 
+Route::get('/subscribe', function(){
+    return view('subscribe.register');
+});
+
+Route::get('/plans', 'subscribeController@plans');
+Route::post('/payment', 'subscribeController@payment');
+
 Route::get('/states', 'stateController@states');
 Route::get('/states/{zip}', 'stateController@stateByZip');

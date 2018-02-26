@@ -5,18 +5,13 @@ $(document).ready(function(){
     /********************/
     $('.plan-btn').click(function(e){
         e.preventDefault();
-        var slug = $(this).data('slug');
-        var cost = $(this).data('cost');
-        $('input[name="plan"]').val(slug);
-        $('.total').html(`Total: $${cost}.00`).css('float', 'right');
-        // if($('div .add-payment-method-view'))
-        //     dropInBraintree();
+        $('input[name="slug"]').val($(this).data('slug'));
+        $('.submit').removeClass('hidden');
+        if($('.selected-shadow')){
+            $('.selected-shadow').removeClass('selected-shadow')
+        }
+        $(this).parent().addClass('selected-shadow');
     });
-
-    // $('.remove-form').click(function(){
-    //     $('#dropin-container').empty();
-    // });
-    
 
     //Gets all states and generates them as option elements
     fetch("/states").then(response => response.json()).then(response => {
@@ -62,16 +57,14 @@ $(document).ready(function(){
     var inputTrigger = 'input[type="text"], input[type="email"], input[type="password"]';
     //Clear placeholder and add animation to floating label
     $(inputTrigger).focusin(function(){
-        var parentContainer = $(this).parent();
-        var label = parentContainer.find('.input-label');
+        var label = $(this).prev('.input-label');
         $(this).removeAttr('placeholder');
         label.removeClass('hidden');
     });
 
     $(inputTrigger).focusout(function(){
         if(!$(this).val()){
-            var parentContainer = $(this).parent();
-            var label = parentContainer.find('.input-label');
+            var label = $(this).prev('.input-label');
             var placeholderValue = label.text();
             $(this).attr('placeholder', placeholderValue);
             label.addClass('hidden');
