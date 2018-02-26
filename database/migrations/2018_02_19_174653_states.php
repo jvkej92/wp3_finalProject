@@ -20,6 +20,9 @@ class States extends Migration
             $table->string('state');
             $table->string('abrv');
         });
+
+        // $states = "LOAD DATA LOCAL INFILE 'C:/Users/loveo/Desktop/wine-club/database/states.csv' INTO TABLE states FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\\r\\n' IGNORE 1 LINES(zip, city, state, abrv);";
+        // DB::connection()->getpdo()->exec($states);
     }
 
     /**

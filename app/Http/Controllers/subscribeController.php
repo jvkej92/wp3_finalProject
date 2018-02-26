@@ -9,7 +9,12 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Plan;
 
 class subscribeController extends Controller
-{
+{   
+        public function register()
+        {
+            return view('subscribe.register');
+        }
+        
         public function plans()
         {
             // $user = Auth::user();

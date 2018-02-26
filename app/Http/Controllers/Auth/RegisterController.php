@@ -53,12 +53,9 @@ class RegisterController extends Controller
         $current = Carbon::today();
         $validDate = $current->subYears(21);
         return Validator::make($data, [
-            'name' => 'required|string|max:70',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'birthday' => 'required|date|before:' . $validDate,
-            'address' => 'required|string|max:95',
-            'city' => 'required|string|max:100',
+            'birthday' => 'required|date|before:' . $validDate
         ]);
     }
 
@@ -71,20 +68,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'birthday' => $data['birthday'],
-        ]);
-
-        $userID = DB::getPdo()->lastInsertId();
-
-        $Shipping = Shipping::create([
-            'user_id' => $userID,
-            'address' => $data['address'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-            'zip' => $data['zip']
         ]);
         $user->assignRole('registered');
         return ($user);
