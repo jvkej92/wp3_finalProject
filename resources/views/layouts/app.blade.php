@@ -22,7 +22,7 @@
 
     @yield('scripts')
 </head>
-<body>
+<body class="bg-light">
     <div id="app">
         <nav class="navbar navbar-toggleable-md navbar-expand-lg dark navbar navbar-laravel">
             <div class="container-fluid col-10">
@@ -73,7 +73,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

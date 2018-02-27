@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="form-header" class="mt-4">Register</div>
-    <div id="form-view">
+    <div id="form-view" class="shadow">
         <div id="form-container" class="second-active">
             <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -106,7 +106,6 @@
 @endsection
 
 @section('scripts')
-<link href="{{ asset('css/formStyle.css') }}" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="{{ asset('js/formControls.js') }}"></script>
 @endsection

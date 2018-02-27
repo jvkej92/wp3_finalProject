@@ -13,8 +13,8 @@ class LaravelValetDriver extends ValetDriver
      */
     public function serves($sitePath, $siteName, $uri)
     {
-        return file_exists($sitePath.'wine-club/public/index.php') &&
-               file_exists($sitePath.'wine-club/artisan');
+        return file_exists($sitePath.'/wine-club/public/index.php') &&
+               file_exists($sitePath.'/wine-club/artisan');
     }
 
     /**
@@ -28,7 +28,7 @@ class LaravelValetDriver extends ValetDriver
      */
     public function isStaticFile($sitePath, $siteName, $uri)
     {
-        if (file_exists($staticFilePath = $sitePath.'wine-club/public'.$uri)
+        if (file_exists($staticFilePath = $sitePath.'/wine-club/public'.$uri)
             && is_file($staticFilePath)) {
             return $staticFilePath;
         }
@@ -39,7 +39,7 @@ class LaravelValetDriver extends ValetDriver
             $storageUri = substr($uri, 8);
         }
 
-        if ($this->isActualFile($storagePath = $sitePath.'wine-club/storage/app/public'.$storageUri)) {
+        if ($this->isActualFile($storagePath = $sitePath.'/wine-club/storage/app/public'.$storageUri)) {
             return $storagePath;
         }
 
@@ -62,6 +62,6 @@ class LaravelValetDriver extends ValetDriver
             $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
         }
 
-        return $sitePath.'wine-club/public/index.php';
+        return $sitePath.'/wine-club/public/index.php';
     }
 }
