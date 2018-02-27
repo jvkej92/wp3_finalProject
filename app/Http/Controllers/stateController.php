@@ -8,7 +8,7 @@ use DB;
 class stateController extends Controller
 {
     function states(){
-        $states = DB::table('states')->distinct()->select('state', 'abrv')->get();
+        $states = DB::table('states')->distinct()->select('state', 'abrv')->whereNotNull('state')->get();
         return $states;
     }
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\Shipping;
+use App\Billing;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -53,9 +53,14 @@ class RegisterController extends Controller
         $current = Carbon::today();
         $validDate = $current->subYears(21);
         return Validator::make($data, [
+            'name' => 'required|string|min:8',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'birthday' => 'required|date|before:' . $validDate
+            'birthday' => 'required|date|before:' . $validDate,
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|min:6',
+            'state' => 'required|string|min:5',
+            'zip' => 'required|string|min:5'
         ]);
     }
 
@@ -67,11 +72,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //Creates a user
         $user = User::create([
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'birthday' => $data['birthday'],
+            'birthday' => $data['birthday']
         ]);
+
+        //Creates a billing address
+        $billing = Billing::create([
+            'name' => $data['address'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip']
+        ]);
+
         $user->assignRole('registered');
         return ($user);
     }

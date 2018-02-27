@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth; 
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -10,21 +11,61 @@ use App\Plan;
 
 class subscribeController extends Controller
 {   
-        public function register()
-        {
+
+        public function register() {
             return view('subscribe.register');
         }
         
-        public function plans()
-        {
-            // $user = Auth::user();
-            // if(!$user->hasRole('registered') || $user->hasRole('subscribed')){
-            //     return redirect('/');
-            // }
-            return view('subscribe.plans')->with(['plans' => Plan::get()]);
+        public function plans() {
+            // If user is not registerd or the user has already subscribed redirect to home page
+            $user = Auth::user();
+            if(!$user->hasRole('registered') || $user->hasRole('subscribed')){
+                return redirect('/');
+            }
+            //Else return the plans page with the data $plans
+            else
+                return view('subscribe.plans')->with(['plans' => Plan::get()]);
         }
     
-        public function subscribe(Request $request) {
+
+        //Loads the payment form with the plan selected on the previous page
+        public function payment(Request $request){
+            $plan = Plan::where('slug', $request['slug'])->first();
+            return view('subscribe.payment')->with('plan', $plan);
+        }
+
+        public function validate(array $data){
+            return Validator::make($data, [
+                'address' => 'required|string|max:255',
+                'city' => 'required|string|min:6',
+                'state' => 'required|string|min:5',
+                'zip' => 'required|string|min:6',
+            ]);
+        }
+
+        public function create(array $data){
+        //gets id of currently logged in user
+        $userID = Auth::id;
+
+        //Creates an entry in the shippingAddress table
+        $Shipping = Shipping::create([
+            'user_id' => $userID,
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip']
+        ]);
+
+        //Redirects to the user dashboard
+        return redirect('/dashboard');
+    }
+    
+    public function process(Request $request) {     
+        $user = Auth::user();
+        if(!$user->hasRole('registered') || $user->hasRole('subscribed')){
+            return redirect('/');
+        }
+        else {
             //get the plan after submitting the form
             $plan = Plan::where('slug', $request->plan)->first();
             
@@ -36,28 +77,12 @@ class subscribeController extends Controller
             else
                 return redirect('/plans');  
     
+            //Assign user the role of subscribed    
             $user = Auth::user();
-            $user->assignRole('subscribed');    
+            $user->assignRole('subscribed');   
+
             //Redirect to home after a successful subscription
-            create($request);
+            validate($request);
         }
-
-        public function payment(Request $request){
-            $plan = Plan::where('slug', $request->plan)->first();
-            return view('subscribe.payment')->with('plan', $plan);
-        }
-
-        protected function create(array $data)
-    {
-        $userID = Auth::id;
-
-        $Shipping = Shipping::create([
-            'user_id' => $userID,
-            'address' => $data['address'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-            'zip' => $data['zip']
-        ]);
-        return redirect('/dashboard');
     }
 }

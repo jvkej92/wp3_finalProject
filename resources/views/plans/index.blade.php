@@ -68,6 +68,7 @@
 <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
 
 <script src="{{ asset('js/formControls.js') }}"></script>
+
 <!-- Load the required client component. -->
 <script src="https://js.braintreegateway.com/web/3.31.0/js/client.min.js"></script>
 

@@ -1,13 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="{{ asset('css/formStyle.css') }}" rel="stylesheet">
 <div id="form-header" class="mt-4">Register</div>
     <div id="form-view">
         <div id="form-container" class="second-active">
             <form method="POST" action="{{ route('register') }}">
             @csrf
-            <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
             <div class="form-card" id="form-card-1">
                 <h2 class="card-title">Personal Information</h2>
                 <hr/>
@@ -105,6 +103,11 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<link href="{{ asset('css/formStyle.css') }}" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="{{ asset('js/formControls.js') }}"></script>
 @endsection
 

@@ -41,7 +41,11 @@ $(document).ready(function(){
         }
     });
     
-    //gets an array containing the matching entrey in the state table 
+    if($('input[name="zip"]').val()){
+        getStateByZip($('input[name="zip"]').val());
+    }
+
+    //gets an array containing the matching entry in the state table 
     function getStateByZip(zip){
         var uri = `/states/${zip}`;
         fetch(uri).then(response => response.json()).then(response => {

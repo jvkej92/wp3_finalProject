@@ -70,6 +70,9 @@ class CreatePermissionTables extends Migration
             $table->primary(['permission_id', 'role_id']);
 
             app('cache')->forget('spatie.permission.cache');
+
+            $role = Role::create(['name' => 'registered']);
+            $role = Role::create(['name' => 'subscription']);
         });
     }
 
