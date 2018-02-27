@@ -24,8 +24,8 @@ Route::group(['middleware' => 'auth'], function () {
     //     return redirect('/');
     // });        
     // Route::get('/plans', 'PlansController@index');   
-    Route::get('/plans', 'subscribeController@plans');
-    Route::post('/payment', 'subscribeController@payment'); 
+    Route::get('/subscribe/plans', 'subscribeController@plans');
+    Route::post('/subscribe/payment', 'subscribeController@payment'); 
     Route::post('subscribe/process', 'subcsribeController@validate');
     Route::post('/subscribe/process/payment', 'subscribeController@process'); 
     Route::get('/dashboard', 'DashboardController@index');

@@ -7,7 +7,7 @@
             <hr class='my-4'>
         </div>
     </div>
-    <form id="form" action="{{ url('payment') }}" method="post">
+    <form id="form" action="{{ url('subscribe/payment') }}" method="post">
             @csrf
     <div class="row m-auto justify-content-between col-6">
             @foreach ($plans->reverse() as $plan)

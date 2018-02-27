@@ -81,12 +81,10 @@ $(document).ready(function(){
     $(".next-btn").click(function(e){
         e.preventDefault();
         var errors = 0;
-
         $(this).parent().parent().find('input').each(function(){
             if(!$(this)[0].checkValidity())
                 errors++;
         });
-
         if(!errors){
             var currentPos = $('#form-container').css('left').split('p');
             var newPosition = Number(currentPos[0]) - formWidth;
@@ -106,7 +104,6 @@ $(document).ready(function(){
         var newPosition = Number(currentPos[0]) + formWidth;
         $('#form-container').css('left', `${newPosition}px`);
     });
-
     $('.delivery-btn').click(function(e){
         e.preventDefault();
         if(!$(this).hasClass('selected')) {
