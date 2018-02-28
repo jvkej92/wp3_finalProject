@@ -4,7 +4,7 @@
         <div class="col-lg-5 align-middle" >
             <div class="jumbotron animated fadeInRight wait-1" style="background: rgba(233,236,239,.7)">
                 @guest
-                <h2 class="display-3 animated fadeIn wait-1 border-bottom">Join Wine Club</h2>
+                <h2 class="display-3 animated fadeIn wait-1">Join Wine Club</h2>
                 <p class="lead animated fadeIn wait-2 py-3">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique turpis lacus, et consectetur ligula euismod
                     ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -14,12 +14,12 @@
                 <a href="login" class="text-small">Login <i class="fas fa-unlock-alt fa-sm"></i></a>
                 </div>
                 @else
-                <h2 class="display-3 animated fadeIn wait-1 border-bottom">What's New</h2>
+                <h2 class="display-3 animated fadeIn wait-1">What's New</h2>
                 <p class="lead animated fadeIn wait-2 py-3">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique turpis lacus, et consectetur ligula euismod
                     ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                 </p>
-                <a href="#" class="mt-4 btn btn-success btn-block p-2 display-2 animated fadeIn wait-2">This Months Wines <i class="fas fa-long-arrow-alt-right"></i></a>
+                <a href="#" class="mt-4 btn btn-success btn-block p-2 display-2 animated fadeIn wait-2">This Months Wines <i class="fas fa-chevron-right"></i></a>
                 @endguest
             </div>
         </div>
