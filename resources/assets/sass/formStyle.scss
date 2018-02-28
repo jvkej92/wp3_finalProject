@@ -96,7 +96,7 @@
 }
 
 .form-control{
-    max-height: 34px;
+    height: 34px;
 }
 
 .form-control>iframe{
@@ -110,7 +110,7 @@
     box-shadow: 0 3px 3px rgba(0,0,0,.1);   
 }
 .selected-shadow{
-    box-shadow: 0 5px 5px rgba(0,0,0,.25);
+    box-shadow: 0 5px 5px rgba(0,0,0,.3);
     border-color: #17a2b8;
 }
 
@@ -145,10 +145,15 @@ body {
     display: block;
   }
 
+  .form-control{
+    background: none!important;
+  }
+
   .form-control:focus{
     border: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
     box-shadow: none;
+    background: none!important;
   }
   
   

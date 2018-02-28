@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Plan;
 
+
 class subscribeController extends Controller
 {   
 
@@ -18,12 +19,12 @@ class subscribeController extends Controller
         
         public function plans() {
             // If user is not registerd or the user has already subscribed redirect to home page
-            $user = Auth::user();
-            if(!$user->hasRole('registered') || $user->hasRole('subscribed')){
-                return redirect('/');
-            }
+            // $user = Auth::user();
+            // if(!$user->hasRole('registered') || $user->hasRole('subscribed')){
+            //     return redirect('/');
+            // }
             //Else return the plans page with the data $plans
-            else
+            // else
                 return view('subscribe.plans')->with(['plans' => Plan::get()]);
         }
     
@@ -31,17 +32,17 @@ class subscribeController extends Controller
         //Loads the payment form with the plan selected on the previous page
         public function payment(Request $request){
             $plan = Plan::where('slug', $request['slug'])->first();
-            return view('subscribe.payment')->with('plan', $plan);
+            return view('subscribe.payment')->with('plans', $plan);
         }
 
-        public function validate(array $data){
-            return Validator::make($data, [
-                'address' => 'required|string|max:255',
-                'city' => 'required|string|min:6',
-                'state' => 'required|string|min:5',
-                'zip' => 'required|string|min:6',
-            ]);
-        }
+        // public function validate(array $data){
+        //     return Validator::make($data, [
+        //         'address' => 'required|string|max:255',
+        //         'city' => 'required|string|min:6',
+        //         'state' => 'required|string|min:5',
+        //         'zip' => 'required|string|min:6',
+        //     ]);
+        // }
 
         public function create(array $data){
         //gets id of currently logged in user
@@ -67,11 +68,11 @@ class subscribeController extends Controller
         }
         else {
             //get the plan after submitting the form
-            $plan = Plan::where('slug', $request->plan)->first();
+            $plan = Plan::where('slug', $request->slug)->first();
             
             //suscribe the user
             if($request->has('nonce'))
-                $request->user()->newSubscription('main', $plan->braintree_plan)->create($request->nonce);
+                $request->user()->newSubscription('main', $plan["braintree_plan"])->create($request["nonce"]);
             else if($request->has('payment_method_nonce'))
                 $request->user()->newSubscription('main', $plan->braintree_plan)->create($request->payment_method_nonce);
             else
@@ -82,7 +83,7 @@ class subscribeController extends Controller
             $user->assignRole('subscribed');   
 
             //Redirect to home after a successful subscription
-            validate($request);
+            return url('/dashboard');
         }
     }
 }

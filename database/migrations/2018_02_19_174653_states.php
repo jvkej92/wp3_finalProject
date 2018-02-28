@@ -15,9 +15,9 @@ class States extends Migration
     {
         Schema::create('states', function (Blueprint $table) {
             $table->string('zip');
-            $table->string('city');
-            $table->string('state');
-            $table->string('abrv');
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('abrv')->nullable();
         });
     }
 

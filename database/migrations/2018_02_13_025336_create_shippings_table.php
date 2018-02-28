@@ -21,6 +21,7 @@ class CreateShippingsTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->integer('zip');
+            $table->timestamps();
         });
     }
 

@@ -8,8 +8,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//Form Styles
-@import 'formStyle';
+
 
 html, body {
   max-width: 100%;
@@ -65,3 +64,5 @@ main{
   min-height: 100vh;
 }
 
+//Form Styles
+@import 'formStyle';

@@ -11,9 +11,9 @@
             @csrf
     <div class="row m-auto justify-content-between col-6">
             @foreach ($plans->reverse() as $plan)
-                <div class="col-5 card p-0 pb-2 plan-card" >
-                    <p class="card-header lead">{{ $plan->name }}</h4>
-                    <h4 class="text-center pt-4">${{ number_format($plan->cost, 2) }} Quarterly</h4>
+                <div class="col-5 card p-0 pb-4 plan-card" >
+                    <p class="card-header lead pt-4" my-4>{{ $plan->name }}</h4>
+                    <h4 class="text-center py-4">${{ number_format($plan->cost, 2) }} Quarterly</h4>
                     <div class="card-body p-4">
                         @if ($plan->description)
                             <p class="text-center">{!!html_entity_decode($plan->description)!!}</p>

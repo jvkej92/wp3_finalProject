@@ -80,8 +80,11 @@ class RegisterController extends Controller
             'birthday' => $data['birthday']
         ]);
 
+        $user = User::latest()->first();
+        echo $user['id'];
         //Creates a billing address
         $billing = Billing::create([
+            'user_ID' =>$user['id'],
             'name' => $data['address'],
             'address' => $data['address'],
             'city' => $data['city'],
