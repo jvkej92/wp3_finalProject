@@ -13,38 +13,30 @@ use App\Plan;
 class subscribeController extends Controller
 {   
 
-        public function register() {
-            return view('subscribe.register');
-        }
+    public function register() {
+        return view('subscribe.register');
+    }
         
-        public function plans() {
-            // If user is not registerd or the user has already subscribed redirect to home page
-            // $user = Auth::user();
-            // if(!$user->hasRole('registered') || $user->hasRole('subscribed')){
-            //     return redirect('/');
-            // }
-            //Else return the plans page with the data $plans
-            // else
-                return view('subscribe.plans')->with(['plans' => Plan::get()]);
+    public function plans() {
+        // If user is not registerd or the user has already subscribed redirect to home page
+        $user = Auth::user();
+        if(!$user->hasRole('registered') || $user->hasRole('subscribed')){
+            return redirect('/');
         }
+        //Else return the plans page with the data $plans
+        else
+            return view('subscribe.plans')->with(['plans' => Plan::get()]);
+    }
     
 
         //Loads the payment form with the plan selected on the previous page
-        public function payment(Request $request){
-            $plan = Plan::where('slug', $request['slug'])->first();
-            return view('subscribe.payment')->with('plans', $plan);
-        }
+    public function payment(Request $request){
+        $plan = Plan::where('slug', $request['slug'])->first();
+        return view('subscribe.payment')->with('plans', $plan);
+    }
 
-        // public function validate(array $data){
-        //     return Validator::make($data, [
-        //         'address' => 'required|string|max:255',
-        //         'city' => 'required|string|min:6',
-        //         'state' => 'required|string|min:5',
-        //         'zip' => 'required|string|min:6',
-        //     ]);
-        // }
 
-        public function create(array $data){
+    public function create(array $data){
         //gets id of currently logged in user
         $userID = Auth::id;
 
@@ -83,7 +75,7 @@ class subscribeController extends Controller
             $user->assignRole('subscribed');   
 
             //Redirect to home after a successful subscription
-            return url('/dashboard');
+            return redirect('/dashboard');
         }
     }
 }
