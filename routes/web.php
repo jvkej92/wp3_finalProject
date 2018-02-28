@@ -25,6 +25,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/subscribe/payment', 'subscribeController@payment'); 
     Route::post('subscribe/process', 'subscribeController@validate');
     Route::post('/subscribe/process/payment', 'subscribeController@process'); 
+    
+    Route::get('/subscribe/payment', function(){
+        return redirect('/');
+    }); 
+
+    Route::get('/subscribe/process', function(){
+        return redirect('/');
+    }); 
+
+    Route::get('/subscribe/process/payment', function(){
+        return redirect('/');
+    }); 
+
     Route::get('/dashboard', 'DashboardController@index');
 });
 
