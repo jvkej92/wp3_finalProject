@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Billing;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Carbon\Carbon;
-use DB;
 
 class RegisterController extends Controller
 {
@@ -22,7 +22,6 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
     use RegistersUsers;
 
     /**
@@ -48,19 +47,20 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    public function validator(array $data)
     {
         $current = Carbon::today();
         $validDate = $current->subYears(21);
+        
         return Validator::make($data, [
             'name' => 'required|string|min:8',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'birthday' => 'required|date|before:' . $validDate,
-            'address' => 'required|string|max:255',
-            'city' => 'required|string|min:6',
-            'state' => 'required|string|min:5',
-            'zip' => 'required|string|min:5'
+            // 'birthday' => 'required|date|before:' . $validDate. '',
+            // 'address' => 'required|string|max:255',
+            // 'city' => 'required|string|min:6',
+            // 'state' => 'required|string|min:5',
+            // 'zip' => 'required|string|min:5'
         ]);
     }
 
@@ -70,7 +70,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    public function create(array $data)
     {
         //Creates a user
         $user = User::create([

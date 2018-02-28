@@ -10169,6 +10169,13 @@ iframe {
   display: block;
 }
 
+.form-control:focus {
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 @media (max-width: 670px) {
   .btn {
     white-space: normal;
@@ -10217,14 +10224,19 @@ body {
   background: none;
 }
 
-main {
-  min-height: 100vh;
+.card {
+  border: none;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.form-control:focus {
+.card-header {
   border: none;
-  border-bottom: 2px solid #282b2c;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  -webkit-box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  min-height: 100vh;
 }
 

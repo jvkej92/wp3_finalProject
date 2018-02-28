@@ -51,12 +51,17 @@ html, body {
   background: none;
 }
 
+.card{
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-header{
+  border: none;
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2)
+}
+
 main{
   min-height: 100vh;
 }
 
-.form-control:focus{
-  border: none;
-  border-bottom: 2px solid $icon-color;
-  box-shadow: none;
-}

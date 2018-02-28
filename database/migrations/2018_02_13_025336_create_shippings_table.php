@@ -31,6 +31,6 @@ class CreateShippingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipping');
+        Schema::dropIfExists('shippings');
     }
 }

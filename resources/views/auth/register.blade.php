@@ -67,7 +67,7 @@
                 </div>
                 <div class="input-row col-md-12">
                         <span class="input-label">City</span>
-                        <input id="city" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required placeholder="City">
+                        <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" required placeholder="City">
                                 @if ($errors->has('city'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('city') }}</strong>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="input-row col-md-12">
                         <span class="input-label">Zip Code</span>
-                        <input id="zip" type="text" class="form-control{{ $errors->has('birthday') ? ' is-invalid' : '' }}" name="zip" value="{{ old('zip') }}" required placeholder="Zip Code">
+                        <input id="zip" type="text" class="form-control{{ $errors->has('zip') ? ' is-invalid' : '' }}" name="zip" value="{{ old('zip') }}" required placeholder="Zip Code">
                                 @if ($errors->has('zip'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('zip') }}</strong>

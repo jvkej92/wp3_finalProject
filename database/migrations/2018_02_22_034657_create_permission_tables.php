@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Permission;
 
 class CreatePermissionTables extends Migration
 {
@@ -71,8 +72,6 @@ class CreatePermissionTables extends Migration
 
             app('cache')->forget('spatie.permission.cache');
 
-            $role = Role::create(['name' => 'registered']);
-            $role = Role::create(['name' => 'subscription']);
         });
     }
 

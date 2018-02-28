@@ -16,17 +16,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/braintree/token', 'BraintreeTokenController@token');
-    // Route::post('/plans/subscribe', 'PlansController@subscribe')->name('subscribe');
-    // Route::get('/plans/subscribe', function(){
-    //     return redirect('/');
-    // });        
-    // Route::get('/plans', 'PlansController@index');   
     Route::get('/subscribe/plans', 'subscribeController@plans');
     Route::post('/subscribe/payment', 'subscribeController@payment'); 
-    Route::post('subscribe/process', 'subcsribeController@validate');
+    Route::post('subscribe/process', 'subscribeController@validate');
     Route::post('/subscribe/process/payment', 'subscribeController@process'); 
     Route::get('/dashboard', 'DashboardController@index');
 });
@@ -34,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/subscribe', 'subscribeController@register');
 
 Route::get('/states', 'stateController@states');
+
 Route::get('/states/{zip}', 'stateController@stateByZip');
 
 
