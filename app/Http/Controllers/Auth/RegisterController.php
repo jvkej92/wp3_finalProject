@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Billing;
+use App\Shippipng;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -83,7 +84,35 @@ class RegisterController extends Controller
             'birthday' => $data['birthday']
         ]);
 
+        //Give user permissions based on status
         $user->assignRole('registered');
+        
+        //Get the current user
+        $currentUser = Auth::user();
+        
+        //Create an entry in the Billing table
+        Billing::create([
+            'user_id' => $currentUser['id'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip']
+            ]);
+            
+
+        //Check if the shipping address is the same as billing
+        if($data['sameAsShipping']){
+        
+            //Creates an entry in the Shipping table
+            Shipping::create([
+                'user_id' => $currentUser['id'],
+                'address' => $data['address'],
+                'city' => $data['city'],
+                'state' => $data['state'],
+                'zip' => $data['zip']
+                ]);
+        }
+
         return ($user);
     }
 }

@@ -95,6 +95,9 @@
                                 @endif
                 </div>
                 <div class="input-row col-md-12">
+                    <p>Same as shipping? <input type="checkbox" name="sameAsShipping" value="sameAsShipping"></p>
+                </div>
+                <div class="input-row col-md-12">
                 <button class="btn prev-btn"><i class="fas fa-chevron-left fa-sm"></i> Prev</button>
                 <button class="btn submit" style="float: right">Continue to membership details <i class="fas fa-chevron-right fa-sm"></i></button>
                 </div>
