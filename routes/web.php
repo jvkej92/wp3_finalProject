@@ -50,3 +50,7 @@ Route::get('/states/{zip}', 'stateController@stateByZip');
 
 // Route::get('/states', 'stateController@states');
 // Route::get('/states/{zip}', 'stateController@stateByZip');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

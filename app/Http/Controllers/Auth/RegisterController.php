@@ -49,6 +49,8 @@ class RegisterController extends Controller
      */
     public function validator(array $data)
     {
+
+        //Get current date - 21 years
         $current = Carbon::today();
         $validDate = $current->subYears(21);
         
@@ -56,11 +58,11 @@ class RegisterController extends Controller
             'name' => 'required|string|min:8',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            // 'birthday' => 'required|date|before:' . $validDate. '',
-            // 'address' => 'required|string|max:255',
-            // 'city' => 'required|string|min:6',
-            // 'state' => 'required|string|min:5',
-            // 'zip' => 'required|string|min:5'
+            'birthday' => 'required|date|before:' . $validDate. '',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string',
+            'state' => 'required|string',
+            'zip' => 'required'
         ]);
     }
 
@@ -70,6 +72,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
     public function create(array $data)
     {
         //Creates a user
@@ -78,18 +81,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'birthday' => $data['birthday']
-        ]);
-
-        $user = User::latest()->first();
-        echo $user['id'];
-        //Creates a billing address
-        $billing = Billing::create([
-            'user_ID' =>$user['id'],
-            'name' => $data['address'],
-            'address' => $data['address'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-            'zip' => $data['zip']
         ]);
 
         $user->assignRole('registered');

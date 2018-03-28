@@ -15,7 +15,7 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id'); // A subscription belongs to a user
+            $table->integer('user_id')->unique(); // A subscription belongs to a user
             $table->string('name');  // The name of the subscription
             $table->string('braintree_id'); //id for the subscription
             $table->string('braintree_plan'); // The name of the plan
