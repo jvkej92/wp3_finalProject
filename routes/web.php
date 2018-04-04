@@ -29,16 +29,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/subscribe/payment', function(){
         return redirect('/');
     }); 
-
+    
     Route::get('/subscribe/process', function(){
         return redirect('/');
     }); 
-
+    
     Route::get('/subscribe/process/payment', function(){
         return redirect('/');
     }); 
-
+    
     Route::get('/dashboard', 'DashboardController@index');
+
+    Route::get('mailchimp',['as'=>'subscribe','uses'=>'MailChimpController@subscribe']);
 });
 
 Route::get('/subscribe', 'subscribeController@register');
@@ -48,8 +50,8 @@ Route::get('/states', 'stateController@states');
 Route::get('/states/{zip}', 'stateController@stateByZip');
 
 
-// Route::get('/states', 'stateController@states');
-// Route::get('/states/{zip}', 'stateController@stateByZip');
+
+Route::post('/billing', 'billingController@createBilling');
 
 Auth::routes();
 

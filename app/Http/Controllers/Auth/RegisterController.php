@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+use Newsletter;
 use App\User;
-use App\Billing;
-use App\Shippipng;
+use App\Address;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -84,35 +86,44 @@ class RegisterController extends Controller
             'birthday' => $data['birthday']
         ]);
 
+        $name = explode(' ', $data['name']);
+        $firstName = $name[0];
+        $lastName = $name[1];
+
+        $dob = explode('-', $data['birthday']);
+        $birthday = $dob[1] . '/' . $dob[2];
+        
         //Give user permissions based on status
         $user->assignRole('registered');
-        
+        RegisterController::registerAddress($data);
+        Newsletter::subscribe($data['email'], [
+            'FNAME'=>$firstName, 
+            'LNAME'=>$lastName, 
+            'BIRTHDAY'=>$birthday
+        ]);
+
+        return ($user);
+    }
+
+   public function registerAddress(array $data){
         //Get the current user
-        $currentUser = Auth::user();
+        $currentUser = User::latest('id')->first();
+
+        if (array_key_exists('sameAsShipping', $data))
+            $address_type = "both";
+        else 
+            $address_type = "billing";
         
         //Create an entry in the Billing table
-        Billing::create([
+        Address::create([
             'user_id' => $currentUser['id'],
             'address' => $data['address'],
             'city' => $data['city'],
             'state' => $data['state'],
-            'zip' => $data['zip']
-            ]);
-            
-
-        //Check if the shipping address is the same as billing
-        if($data['sameAsShipping']){
-        
-            //Creates an entry in the Shipping table
-            Shipping::create([
-                'user_id' => $currentUser['id'],
-                'address' => $data['address'],
-                'city' => $data['city'],
-                'state' => $data['state'],
-                'zip' => $data['zip']
-                ]);
-        }
-
-        return ($user);
+            'zip' => $data['zip'],
+            'address_type' => $address_type,
+        ]);
     }
+
+
 }

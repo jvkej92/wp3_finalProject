@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="form-card" id="form-card-2">
-                <h2 class="form-card-heading">Billing Information</h2>
+                <h2 class="form-card-heading">Shipping Information</h2>
                 <hr/>
                 <div class="input-row col-md-12">
                     <span class="input-label hidden">Address</span>
@@ -95,9 +95,6 @@
                                 @endif
                 </div>
                 <div class="input-row col-md-12">
-                    <p>Same as shipping? <input type="checkbox" name="sameAsShipping" value="sameAsShipping"></p>
-                </div>
-                <div class="input-row col-md-12">
                 <button class="btn prev-btn"><i class="fas fa-chevron-left fa-sm"></i> Prev</button>
                 <button class="btn submit" style="float: right">Continue to membership details <i class="fas fa-chevron-right fa-sm"></i></button>
                 </div>
@@ -112,6 +109,3 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="{{ asset('js/formControls.js') }}"></script>
 @endsection
-
-
-
