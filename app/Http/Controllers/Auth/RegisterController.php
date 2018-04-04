@@ -108,11 +108,6 @@ class RegisterController extends Controller
    public function registerAddress(array $data){
         //Get the current user
         $currentUser = User::latest('id')->first();
-
-        if (array_key_exists('sameAsShipping', $data))
-            $address_type = "both";
-        else 
-            $address_type = "billing";
         
         //Create an entry in the Billing table
         Address::create([
