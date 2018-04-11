@@ -116,7 +116,7 @@ class RegisterController extends Controller
             'city' => $data['city'],
             'state' => $data['state'],
             'zip' => $data['zip'],
-            'address_type' => $address_type,
+            'address_type' => 'shipping',
         ]);
     }
 

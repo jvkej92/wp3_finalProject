@@ -29,7 +29,7 @@
 </div>
 @endsection
 @section('styles')
-="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 @endsection
 
 @section('scripts')
