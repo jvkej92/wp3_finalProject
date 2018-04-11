@@ -14,13 +14,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fa-svg-with-js.css') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    @yield('styles')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/fontawesome-all.min.js') }}"></script>
-
     @yield('scripts')
+
 </head>
 <body class="bg-light">
     <div id="app">

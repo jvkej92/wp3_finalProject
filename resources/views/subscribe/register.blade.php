@@ -52,8 +52,11 @@
 </div>
 @endsection
 
-@section('scripts')
+@section('styles')
 <link href="{{ asset('css/formStyle.css') }}" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
 <script src="{{ asset('js/formControls.js') }}"></script>
 @endsection
