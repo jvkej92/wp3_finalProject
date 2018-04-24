@@ -165,9 +165,9 @@ return [
         // 
         Barryvdh\Debugbar\ServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
-        Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Skovmand\Mailchimp\MailchimpServiceProvider::class,
+        TCG\Voyager\VoyagerServiceProvider::class
     ],
 
     /*

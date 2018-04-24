@@ -94,7 +94,6 @@ class RegisterController extends Controller
         $birthday = $dob[1] . '/' . $dob[2];
         
         //Give user permissions based on status
-        $user->assignRole('registered');
         RegisterController::registerAddress($data);
         Newsletter::subscribe($data['email'], [
             'FNAME'=>$firstName, 

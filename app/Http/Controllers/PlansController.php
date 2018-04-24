@@ -12,10 +12,7 @@ class PlansController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        if($user->hasRole('subscribed')){
-            return redirect('/');
-        }
+
         return view('plans.index')->with(['plans' => Plan::get()]);
     }
 
@@ -31,8 +28,6 @@ class PlansController extends Controller
         else
             return redirect('/plans');  
 
-        $user = Auth::user();
-        $user->assignRole('subscribed');    
         //Redirect to home after a successful subscription
         return redirect('/dashboard');
     }

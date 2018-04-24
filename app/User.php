@@ -5,13 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
-use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
     use Billable;
-    use HasRoles;
 
     protected $guard_name = 'web';
     /**
