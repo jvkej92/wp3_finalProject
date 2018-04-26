@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+@section('content')
 <div class="container-fluid intro-home p-4 animated fadeIn">
     <div class="row justify-content-end col-11 h-100 position-relative" style="overflow-x: hidden">
         <div class="col-lg-5 align-middle" >

@@ -46,9 +46,6 @@ class subscribeController extends Controller
             return redirect('/subscribe/plans');
 
         $user = Auth::user();
-        $user->assignRole('subscribed');   
-
         return redirect('/dashboard');
-
     }
 }
