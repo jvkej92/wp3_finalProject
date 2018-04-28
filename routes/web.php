@@ -57,7 +57,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/userMetrics', 'DashboardMetricController@newUsers');
+Route::get('/userMetrics/newUsers/{num}', 'DashboardMetricController@newUsers');
+Route::get('/userMetrics/totalUsers/{num}', 'DashboardMetricController@totalUsers');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

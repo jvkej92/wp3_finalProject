@@ -35,8 +35,8 @@ body.login {
         z-index:2;
         padding:0;
         justify-content:center;
-        background:#ffffff;
-        border-top: 5px solid #22A7F0;
+        background:#f4f4f4;
+        border-top: 5px solid #693838;
         border-radius: 0px;
     }
 
@@ -2767,13 +2767,13 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 
 .voyager .navbar .navbar-nav > li:hover > a,
 .voyager .navbar.navbar-default .navbar-nav > li:hover > a {
-    color: #22A7F0;
+    color: #693838;
 }
 
 .voyager .navbar .navbar-nav > li.open > a,
 .voyager .navbar.navbar-default .navbar-nav > li.open > a {
     background-color: transparent;
-    color: #22A7F0;
+    color: #693838;
 }
 
 .voyager .navbar .navbar-nav > li.danger > a,
@@ -2861,12 +2861,12 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .navbar.navbar-inverse .navbar-nav > li:hover > a {
-    color: #22A7F0;
+    color: #693838;
 }
 
 .voyager .navbar.navbar-inverse .navbar-nav > li.open > a {
     background-color: transparent;
-    color: #22A7F0;
+    color: #693838;
 }
 
 .voyager .navbar.navbar-inverse .navbar-nav > li.danger > a {
@@ -2912,7 +2912,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .side-menu .navbar-header {
-    background-color: #22A7F0;
+    background-color: #693838;
     margin-bottom: 4px;
 }
 
@@ -2941,7 +2941,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .side-menu .navbar li.active > a {
-    border-right: 4px solid #22A7F0;
+    border-right: 4px solid #693838;
     background-color: #FFF;
 }
 
@@ -2985,8 +2985,8 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 
 .voyager .side-menu.sidebar-inverse .navbar li.active > a {
     color: #353d47;
-    border-left: 3px solid #22A7F0;
-    border-right: 0 solid #22A7F0;
+    border-left: 3px solid #693838;
+    border-right: 0 solid #693838;
     background-color: #FFF;
     font-weight:400;
 }
@@ -3039,7 +3039,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .card.blue {
-    background-color: #22A7F0;
+    background-color: #693838;
     color: #FFF;
 }
 
@@ -3135,7 +3135,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .card.card-info .card-header {
-    background-color: #22A7F0;
+    background-color: #693838;
 }
 
 .voyager .card.card-info .card-header .title {
@@ -3381,11 +3381,11 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .panel.panel-info {
-    border: 1px solid #22A7F0;
+    border: 1px solid #693838;
 }
 
 .voyager .panel.panel-info .panel-heading {
-    border-bottom: 1px solid #22A7F0;
+    border-bottom: 1px solid #693838;
     background-color: #91d5fb;
     color: #09486b;
 }
@@ -3431,12 +3431,12 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .panel.fresh-color.panel-info {
-    border: 1px solid #22A7F0;
+    border: 1px solid #693838;
 }
 
 .voyager .panel.fresh-color.panel-info .panel-heading {
-    border-bottom: 1px solid #22A7F0;
-    background-color: #22A7F0;
+    border-bottom: 1px solid #693838;
+    background-color: #693838;
     color: #FFF;
 }
 
@@ -3495,13 +3495,13 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .btn.btn-info {
-    background-color: #22A7F0;
+    background-color: #693838;
     color: #FFF;
-    border-color: #22A7F0;
+    border-color: #693838;
 }
 
 .voyager .btn.btn-sm.btn-info {
-  background:#22A7F0;
+  background:#693838;
 }
 
 .voyager .btn.btn-danger {
@@ -3530,7 +3530,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .progress .progress-bar.progress-bar-info {
-    background-color: #22A7F0;
+    background-color: #693838;
 }
 
 .voyager .progress .progress-bar.progress-bar-warning {
@@ -3571,7 +3571,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .modal.modal-info .modal-header {
-    background-color: #22A7F0;
+    background-color: #693838;
     color: #FFF;
 }
 
@@ -3603,7 +3603,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 .voyager .alert.alert-info {
     background-color: #91d5fb;
     color: #09486b;
-    border-color: #22A7F0;
+    border-color: #693838;
 }
 
 .voyager .alert.alert-info .alert-link {
@@ -3663,7 +3663,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .alert.fresh-color.alert-info {
-    background-color: #22A7F0;
+    background-color: #693838;
 }
 
 .voyager .alert.fresh-color.alert-warning {
@@ -3704,7 +3704,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 
 .voyager .list-group .list-group-item.list-group-item-info .badge {
     background-color: #FFF;
-    color: #22A7F0;
+    color: #693838;
 }
 
 .voyager .list-group .list-group-item.list-group-item-warning {
@@ -3825,7 +3825,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .badge.info {
-    background-color: #22A7F0;
+    background-color: #693838;
 }
 
 .voyager .badge.warning {
@@ -4061,7 +4061,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager .pricing-table.blue .pt-header {
-    background-color: #22A7F0;
+    background-color: #693838;
     color: #FFF;
 }
 
@@ -4121,7 +4121,7 @@ a.text-action{color:#a3afb7}a.text-action,a.text-action:focus,a.text-action:hove
 }
 
 .voyager.landing-page .navbar.affix .navbar-nav > li:hover > a {
-    color: #22A7F0;
+    color: #693838;
 }
 
 @media (max-width: 768px) {
@@ -4805,7 +4805,7 @@ float: left;
 }
 
 .breadcrumb a{
-  color:#22A7F0;
+  color:#693838;
   font-family:'Open Sans';
   font-weight:400;
 }
@@ -4911,7 +4911,7 @@ float: left;
 .btn.btn-primary {
     color: #fff;
     opacity:0.9;
-    background:#22A7F0;
+    background:#693838;
     border: 0px;
     border-radius: 3px;
 
@@ -5334,7 +5334,7 @@ float: left;
   border-color:rgba(0, 0, 0, 0.1);
 }
 .voyager .alert.alert-info{
-  background-color:#22A7F0;
+  background-color:#693838;
   color:#fff;
   border-color:rgba(0, 0, 0, 0.1);
 }
@@ -5422,7 +5422,7 @@ ul.radio li .check{
 }
 
 ul.radio li:hover .check {
-  border: 4px solid #22A7F0;
+  border: 4px solid #693838;
 }
 
 ul.radio li .check::before {
@@ -5440,11 +5440,11 @@ ul.radio li .check::before {
 }
 
 input[type=radio]:checked ~ .check {
-  border: 4px solid #22A7F0;
+  border: 4px solid #693838;
 }
 
 input[type=radio]:checked ~ .check::before{
-  background: #22A7F0;
+  background: #693838;
 }
 
 input[type=radio]:checked ~ label{
